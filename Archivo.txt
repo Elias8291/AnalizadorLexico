@@ -1,1 +1,5 @@
-void
+class hola{
+public void saludo(){
+System.out.println("Hola")
+}
+}

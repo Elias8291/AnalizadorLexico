@@ -9,7 +9,7 @@ package codigo;
  * @author Abisai
  */
 public enum Tokens {
-     Int,
+    Int,
     Linea,
     Comillas,
     T_dato,
@@ -39,6 +39,10 @@ public enum Tokens {
     P_coma,
     Identificador,
     Numero,
+    KW_public,
+    KW_static,
+    KW_void,
+    
     ERROR
     
 }

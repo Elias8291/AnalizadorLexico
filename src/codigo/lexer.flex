@@ -1,10 +1,13 @@
 import static codigo.Tokens.*;
+
 %%
 %class Lexer
 %type Tokens
+
 L=[a-zA-Z_]+
 D=[0-9]+
 espacio=[ ,\t,\r]+
+
 %{
     public String lexeme;
 %}
@@ -24,24 +27,32 @@ espacio=[ ,\t,\r]+
 
 /* Tipos de datos */
 ( byte | int | char | long | float | double ) {lexeme=yytext(); return T_dato;}
+/* Palabra reservada public */
+( "public" ) {lexeme=yytext(); return KW_public;}
+
+/* Palabra reservada void */
+( "void" ) {lexeme=yytext(); return KW_void;}
+
+/* Palabra reservada static */
+( "static" ) {lexeme=yytext(); return KW_static;}
 
 /* Tipo de dato String */
-( String ) {lexeme=yytext(); return Cadena;}
+( "String" ) {lexeme=yytext(); return Cadena;}
 
 /* Palabra reservada If */
-( if ) {lexeme=yytext(); return If;}
+( "if" ) {lexeme=yytext(); return If;}
 
 /* Palabra reservada Else */
-( else ) {lexeme=yytext(); return Else;}
+( "else" ) {lexeme=yytext(); return Else;}
 
 /* Palabra reservada Do */
-( do ) {lexeme=yytext(); return Do;}
+( "do" ) {lexeme=yytext(); return Do;}
 
 /* Palabra reservada While */
-( while ) {lexeme=yytext(); return While;}
+( "while" ) {lexeme=yytext(); return While;}
 
 /* Palabra reservada For */
-( for ) {lexeme=yytext(); return For;}
+( "for" ) {lexeme=yytext(); return For;}
 
 /* Operador Igual */
 ( "=" ) {lexeme=yytext(); return Igual;}
@@ -92,7 +103,7 @@ espacio=[ ,\t,\r]+
 ( "]" ) {lexeme = yytext(); return Corchete_c;}
 
 /* Marcador de inicio de algoritmo */
-( "main" ) {lexeme=yytext(); return Main;}
+( "main"|"class" ) {lexeme=yytext(); return Main;}
 
 /* Punto y coma */
 ( ";" ) {lexeme=yytext(); return P_coma;}
@@ -104,4 +115,4 @@ espacio=[ ,\t,\r]+
 ("(-"{D}+")")|{D}+ {lexeme=yytext(); return Numero;}
 
 /* Error de analisis */
- . {return ERROR;}
+. {return ERROR;}
