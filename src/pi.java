@@ -7,6 +7,6 @@
  *
  * @author jacqu
  */
-public class prueb {
+public class pi {
     
 }
