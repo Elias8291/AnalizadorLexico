@@ -5,7 +5,6 @@
 package codigo;
 
 import java.io.File;
-import javax.annotation.processing.Generated;
 
 /**
  *
@@ -14,7 +13,7 @@ import javax.annotation.processing.Generated;
 public class Principal {
 
     public static void main(String[] args) {
-        String ruta = "C:/Users/Abisai/Documents/NetBeansProjects/AnalizadorLexioo/src/codigo/lexer.flex";
+        String ruta = "C:/Users/jacqu/OneDrive/Documentos/NetBeansProjects/AnalizadorLexico/src/codigo/lexer.flex";
         generatedLexer(ruta);
     }
 
